@@ -39,7 +39,7 @@ export const upsertComment = async (res: CheckReleaseResponse) => {
   let message = `
 ## SQL Review Summary
 
-* Total Affected Rows: **${res.affectedRows}**
+* Total Affected Rows: **${res.affectedRows ?? 0}**
 * Overall Risk Level: **${stringifyRiskLevel(res.riskLevel)}**
 * Advices Statistics: **${totalErrorAdviceCount} Error(s), ${totalWarningAdviceCount} Warning(s)**
 `
@@ -85,7 +85,7 @@ export const upsertComment = async (res: CheckReleaseResponse) => {
     message += `<tr>
   <td>${result.file}</td>
   <td>${result.target}</td>
-  <td>${result.affectedRows}</td>
+  <td>${result.affectedRows ?? 0}</td>
   <td>${stringifyRiskLevel(result.riskLevel)}</td>
   <td>${advicesCell}</td>
 </tr>`

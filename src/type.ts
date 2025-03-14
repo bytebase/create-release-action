@@ -12,11 +12,11 @@ export interface CheckReleaseResponse {
         file: string
         target: string
         advices: any[] | undefined
-        affectedRows: number
+        affectedRows: number | undefined
         riskLevel: string
       }[]
     | undefined
-  affectedRows: number
+  affectedRows: number | undefined
   riskLevel: string
 }
 
